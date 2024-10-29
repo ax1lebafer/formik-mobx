@@ -1,4 +1,5 @@
 export const appRoutes = {
   HOME: "/",
-  SIGNIN: "/signin",
+  LOGIN: "/login",
+  NOT_FOUND: "*",
 };
