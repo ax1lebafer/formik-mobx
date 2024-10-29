@@ -1,0 +1,33 @@
+.inputContainer {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.inputContainer label {
+    display: block;
+    padding: 0 0 6px 6px;
+    font-size: 16px;
+    color: black;
+    text-align: left;
+}
+
+.inputContainer input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: 18px;
+    color: black;
+    outline: none;
+}
+
+.inputContainer span {
+    display: block;
+    position: absolute;
+    top: 100%;
+    padding-left: 6px;
+    font-size: 16px;
+    color: #d63a3a;
+    padding-top: 3px;
+}
