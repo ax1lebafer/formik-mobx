@@ -7,6 +7,7 @@ type InputProps = {
   name: string;
   placeholder: string;
   type: string;
+  disabled?: boolean;
 };
 
 export default function Input({
@@ -15,11 +16,18 @@ export default function Input({
   name,
   placeholder,
   type,
+  disabled,
 }: InputProps) {
   return (
     <div className={styles.inputContainer}>
       <label htmlFor={id}>{label}</label>
-      <Field name={name} id={id} type={type} placeholder={placeholder} />
+      <Field
+        name={name}
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        disabled={disabled}
+      />
       <Error name={name}>{(error) => <span>{error}</span>}</Error>
     </div>
   );
