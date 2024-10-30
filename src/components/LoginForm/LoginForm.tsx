@@ -9,6 +9,7 @@ import { appRoutes } from "../../lib/appRoutes.ts";
 import { useEffect } from "react";
 
 import styles from "./LoginForm.module.css";
+import Button from "../Button/Button.tsx";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -52,13 +53,9 @@ function LoginForm() {
             placeholder="Введите пароль"
             disabled={UserStore.isLoading}
           />
-          <button
-            type="submit"
-            disabled={UserStore.isLoading}
-            className={styles.button}
-          >
-            {UserStore.isLoading ? "Загрузка..." : "Войти"}
-          </button>
+          <Button type="submit" disabled={UserStore.isLoading}>
+            Войти
+          </Button>
         </Form>
       </Formik>
     </div>
