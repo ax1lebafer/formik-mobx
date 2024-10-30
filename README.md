@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# MobX + Formik
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Для запуска проекта:
+- Установить зависимости `npm i`
+- Выполнить команду `npm run dev`
+- Открыть проект в браузере
 
-Currently, two official plugins are available:
+## Стек:
+- React
+- TypeScript
+- MobX
+- Formik
+- Yup
+- React Router
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Функционал:
+Проект представляет собой веб-приложение с базовым функционалом авторизации и защиты маршрутов для зарегистрированных пользователей. Основное внимание уделено созданию удобного и безопасного процесса входа в систему, а также управлению состоянием пользователя с помощью библиотеки MobX.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Страница авторизации:
+   - Форма авторизации: Реализована с использованием библиотеки Formik, что обеспечивает удобное управление состоянием формы и поддержку работы с данными пользователя.
+   - Валидация данных: Валидация полей ввода (e-mail и пароль) осуществляется с помощью библиотеки Yup, что позволяет эффективно проверять корректность данных пользователя перед отправкой формы.
+2. Главная страница:
+   - Отображение данных пользователя: После входа на главной странице отображается приветственное сообщение с именем пользователя (его e-mail), что добавляет персонализированный элемент интерфейсу.
+3. Управление состоянием:
+   - MobX: Используется для глобального управления состоянием пользователя, включая информацию о входе в систему и статусе загрузки. MobX обеспечивает реактивное обновление компонентов, что упрощает синхронизацию состояния приложения с пользовательским интерфейсом.
+   - Загрузка и блокировка интерфейса: При отправке формы авторизации отображается индикатор загрузки и временно блокируются поля ввода, что предотвращает повторные нажатия на кнопку входа и улучшает пользовательский опыт.
+4. Защита маршрутов:
+   - PrivateRoute: Реализован компонент, который ограничивает доступ к определенным маршрутам для неавторизованных пользователей. Если пользователь не вошел в систему, он перенаправляется на страницу авторизации.
+   - Перенаправление авторизованного пользователя: При успешном входе пользователь автоматически перенаправляется на главную страницу приложения. Повторный доступ к странице авторизации для вошедших в систему пользователей блокируется.
